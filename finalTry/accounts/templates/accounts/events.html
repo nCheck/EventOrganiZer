@@ -1,0 +1,41 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <div class="col">
+            <div class="row">
+                        <div class="jumbotron">
+                            <div class="container">
+            <div class="jumbotron pos1">
+          <h1 class="display-4">HOME</h1>
+          <p class="lead">"Things can go wrong during events, and very rarely will everything go exactly as we plan."</p>
+          <hr class="my-4">
+          <p id="lab">Select your Category</p>
+            {% if not user.is_authenticated %}
+                    <button type="button" onclick="window.location.replace('{% url 'accounts:login' %}')" target="_blank" class="btn btn-primary">Login </button><br><br>
+                {% endif %}
+
+                {% if user.is_authenticated and user.is_committee %}
+                    <button type="button" onclick="window.location.replace('{% url 'committee:create_event' %}')" target="_blank" class="btn btn-primary">Event Manager </button><br><br>
+                {% endif %}
+            <button type="button" onclick="window.location.replace('{% url 'committee:event_list' %}')" target="_blank" class="btn btn-primary">Event Lists </button><br><br>
+          </div>
+
+            {% if user.is_authenticated %}
+            <div>
+                <a href="{% url 'accounts:update_profile' pk=user.student_profile.id %}" >Update Profile</a>
+            </div>
+                <div>
+                    <a href="{% url 'accounts:logout' %}" >Logout</a>
+                </div>
+            {% else %}
+                <div class="container">
+                <a href="{% url 'accounts:signup' %}">SignUp</a>
+                </div>
+            {% endif %}
+          </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

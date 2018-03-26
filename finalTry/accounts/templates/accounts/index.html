@@ -1,0 +1,20 @@
+{% extends 'accounts//base.html' %}
+{% load static %}
+{% block content %}
+
+            <div class="container-fluid">
+                <div class="container-fluid sty" >
+                    <p id="texts" class="ml-auto mr-auto pos7"> Welcome to Event Manager</p>
+                    <br><hr><br>
+                    <button id="pos7"type="button" class="btn btn-primary" onclick="location.href={% url 'accounts:event' %}">Events</button>
+                    <button id="pos7"type="button" class="btn btn-primary" onclick="location.href={% url 'place_index' %}">Placement</button>
+                    <div class="container">
+                        <DIV >
+                            <br><br><hr><br><br>
+                            <p class="blockquote-footer">site made by Team KWARGS (Nehal , Kartick , Ashley , Cajetan) for UnScript2k18 Hackathon</p>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

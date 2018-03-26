@@ -1,0 +1,16 @@
+{% extends 'HomePage.html' %}
+{% block content %}
+    <div class="container pos10">
+    <div class="Jumbotron">
+        <h1>Event Creation Form</h1>
+        <hr>
+    </div>
+    <div class="col" >
+        <form method="POST" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    </div>
+    </div>
+{% endblock %}

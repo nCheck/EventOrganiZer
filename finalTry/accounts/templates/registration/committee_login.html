@@ -1,0 +1,14 @@
+{% extends 'HomePage.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+  <div class="container align-content-center">
+    <h2>Committee Login Page</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  </div>
+{% endblock %}
